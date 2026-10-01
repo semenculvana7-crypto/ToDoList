@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.auth-container {
+    width: 90%;
+    max-width: 450px;
+    margin: 70px auto;
+}
+
+.auth-card {
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.auth-card h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #777;
+}
+
+.helptext {
+    color: #888;
+    font-size: 12px;
+}
+
+ul.errorlist {
+    color: #c62828;
+    font-size: 13px;
+    padding-left: 20px;
+}
+
+.errors {
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.bottom-text {
+    margin-top: 25px;
+    text-align: center;
+    color: #666;
+}
+
+.bottom-text a {
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+    text-decoration: none;
+    font-size: 14px;
+}

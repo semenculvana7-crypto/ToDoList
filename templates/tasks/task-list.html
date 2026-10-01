@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Мои задачи</title>
-    <link rel="stylesheet" href="{% static 'task_list.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/task_list.css' %}">
 </head>
 
 <body>
@@ -12,15 +12,43 @@
 <div class="container">
 
     <div class="header">
+
         <div>
             <h1>Мои задачи</h1>
             <p>Список всех твоих задач</p>
         </div>
 
-        <a href="{% url 'task-create' %}" class="create-button">
-            + Создать задачу
-        </a>
+        <div class="header-buttons">
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'task-create' %}" class="create-button">
+                    + Создать задачу
+                </a>
+
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">
+                        Выйти
+                    </button>
+                </form>
+
+            {% else %}
+
+                <a href="{% url 'login' %}" class="login-button">
+                    Войти
+                </a>
+
+                <a href="{% url 'register' %}" class="register-button">
+                    Регистрация
+                </a>
+
+            {% endif %}
+
+        </div>
+
     </div>
+
 
     <div class="tasks">
 
@@ -29,6 +57,7 @@
             <div class="task-card">
 
                 <div class="task-info">
+
                     <h2>{{ task.tittle }}</h2>
 
                     <p>
@@ -44,6 +73,7 @@
                             В процессе
                         </span>
                     {% endif %}
+
                 </div>
 
                 <a href="{% url 'task-detail' task.pk %}" class="details-button">
@@ -58,9 +88,16 @@
                 <h2>Задач пока нет</h2>
                 <p>Создай свою первую задачу.</p>
 
-                <a href="{% url 'task-create' %}">
-                    Создать задачу
-                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'task-create' %}">
+                        Создать задачу
+                    </a>
+                {% else %}
+                    <a href="{% url 'login' %}">
+                        Войти
+                    </a>
+                {% endif %}
+
             </div>
 
         {% endfor %}

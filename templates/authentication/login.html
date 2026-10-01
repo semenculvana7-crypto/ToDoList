@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{% static 'authentication/login.css' %}">
 </head>
+
 <body>
-$END$
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>Вход</h1>
+
+        <p class="subtitle">
+            Войди в свой аккаунт, чтобы управлять задачами
+        </p>
+
+        {% if form.non_field_errors %}
+            <div class="errors">
+                Неверное имя пользователя или пароль.
+            </div>
+        {% endif %}
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Войти
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+            Нет аккаунта?
+            <a href="{% url 'register' %}">
+                Зарегистрироваться
+            </a>
+        </div>
+
+        <a href="{% url 'task-list' %}" class="back">
+            ← Вернуться к задачам
+        </a>
+
+    </div>
+
+</div>
+
 </body>
 </html>

@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'authentication/register.css' %}">
 </head>
+
 <body>
-$END$
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>Создать аккаунт</h1>
+
+        <p class="subtitle">
+            Зарегистрируйся, чтобы создавать свои задачи
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            {% if form.non_field_errors %}
+                <div class="errors">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <button type="submit">
+                Зарегистрироваться
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+            Уже есть аккаунт?
+            <a href="{% url 'login' %}">
+                Войти
+            </a>
+        </div>
+
+        <a href="{% url 'task-list' %}" class="back">
+            ← Вернуться к задачам
+        </a>
+
+    </div>
+
+</div>
+
 </body>
 </html>
