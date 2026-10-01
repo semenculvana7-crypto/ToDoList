@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать задачу</title>
+    <link rel="stylesheet" href="{% static 'task_create.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="{% url 'task-list' %}" class="back">
+        ← Назад
+    </a>
+
+    <div class="form-card">
+
+        <h1>Создать задачу</h1>
+        <p class="subtitle">
+            Заполни информацию о новой задаче
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Создать задачу
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

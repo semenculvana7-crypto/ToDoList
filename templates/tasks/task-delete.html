@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить задачу</title>
+    <link rel="stylesheet" href="{% static 'task_delete.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="delete-card">
+
+        <div class="icon">
+            !
+        </div>
+
+        <h1>Удалить задачу?</h1>
+
+        <p>
+            Ты действительно хочешь удалить
+            <strong>{{ object.tittle }}</strong>?
+        </p>
+
+        <p class="warning">
+            Это действие нельзя будет отменить.
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <div class="buttons">
+
+                <a href="{% url 'task-detail' object.pk %}">
+                    Отмена
+                </a>
+
+                <button type="submit">
+                    Удалить
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

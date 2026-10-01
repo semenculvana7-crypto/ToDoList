@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои задачи</title>
+    <link rel="stylesheet" href="{% static 'task_list.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div>
+            <h1>Мои задачи</h1>
+            <p>Список всех твоих задач</p>
+        </div>
+
+        <a href="{% url 'task-create' %}" class="create-button">
+            + Создать задачу
+        </a>
+    </div>
+
+    <div class="tasks">
+
+        {% for task in tasks %}
+
+            <div class="task-card">
+
+                <div class="task-info">
+                    <h2>{{ task.tittle }}</h2>
+
+                    <p>
+                        {{ task.description|truncatewords:20 }}
+                    </p>
+
+                    {% if task.completed %}
+                        <span class="status completed">
+                            Выполнено
+                        </span>
+                    {% else %}
+                        <span class="status active">
+                            В процессе
+                        </span>
+                    {% endif %}
+                </div>
+
+                <a href="{% url 'task-detail' task.pk %}" class="details-button">
+                    Подробнее
+                </a>
+
+            </div>
+
+        {% empty %}
+
+            <div class="empty">
+                <h2>Задач пока нет</h2>
+                <p>Создай свою первую задачу.</p>
+
+                <a href="{% url 'task-create' %}">
+                    Создать задачу
+                </a>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.tittle }}</title>
+    <link rel="stylesheet" href="{% static 'task_detail.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="{% url 'task-list' %}" class="back">
+        ← Назад к задачам
+    </a>
+
+    <div class="task">
+
+        <div class="top">
+            <h1>{{ object.tittle }}</h1>
+
+            {% if object.completed %}
+                <span class="completed">Выполнено</span>
+            {% else %}
+                <span class="active">В процессе</span>
+            {% endif %}
+        </div>
+
+        <div class="description">
+            <h3>Описание</h3>
+            <p>
+                {{ object.description|default:"Описание отсутствует." }}
+            </p>
+        </div>
+
+        <div class="buttons">
+
+            <a href="{% url 'task-update' object.pk %}" class="update">
+                Изменить
+            </a>
+
+            <a href="{% url 'task-delete' object.pk %}" class="delete">
+                Удалить
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

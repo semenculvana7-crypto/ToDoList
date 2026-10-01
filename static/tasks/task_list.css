@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    color: #777;
+}
+
+.create-button {
+    text-decoration: none;
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.task-card h2 {
+    margin: 0 0 8px;
+}
+
+.task-card p {
+    color: #666;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.completed {
+    background: #d9f7df;
+    color: #247333;
+}
+
+.active {
+    background: #fff0c2;
+    color: #8a6500;
+}
+
+.details-button {
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+
+.details-button:hover {
+    background: #f3f3f3;
+}
+
+.empty {
+    text-align: center;
+    background: white;
+    padding: 60px;
+    border-radius: 12px;
+}
+
+.empty a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+}

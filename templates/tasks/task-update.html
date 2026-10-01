@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить задачу</title>
+    <link rel="stylesheet" href="{% static 'task_update.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="{% url 'task-detail' object.pk %}" class="back">
+        ← Назад к задаче
+    </a>
+
+    <div class="form-card">
+
+        <h1>Изменить задачу</h1>
+
+        <p class="subtitle">
+            Измени необходимые данные
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Сохранить изменения
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
