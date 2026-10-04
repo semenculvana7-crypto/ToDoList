@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
+
     <title>Вход</title>
+
     <link rel="stylesheet" href="{% static 'authentication/login.css' %}">
 </head>
 
 <body>
 
+
 <div class="auth-container">
 
     <div class="auth-card">
+
+
+        <!-- Уведомления -->
+
+        {% if messages %}
+
+            <div class="notifications">
+
+                {% for message in messages %}
+
+                    <div class="notification notification-{{ message.tags }}">
+
+                        <div class="notification-icon">
+
+                            {% if message.tags == 'success' %}
+                                ✓
+
+                            {% elif message.tags == 'error' %}
+                                !
+
+                            {% elif message.tags == 'warning' %}
+                                !
+
+                            {% else %}
+                                i
+
+                            {% endif %}
+
+                        </div>
+
+                        <div class="notification-text">
+                            {{ message }}
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- Заголовок -->
 
         <h1>Вход</h1>
 
@@ -19,11 +68,19 @@
             Войди в свой аккаунт, чтобы управлять задачами
         </p>
 
+
+        <!-- Ошибка авторизации -->
+
         {% if form.non_field_errors %}
+
             <div class="errors">
                 Неверное имя пользователя или пароль.
             </div>
+
         {% endif %}
+
+
+        <!-- Форма -->
 
         <form method="post">
 
@@ -37,20 +94,31 @@
 
         </form>
 
+
+        <!-- Регистрация -->
+
         <div class="bottom-text">
+
             Нет аккаунта?
+
             <a href="{% url 'register' %}">
                 Зарегистрироваться
             </a>
+
         </div>
+
+
+        <!-- Вернуться -->
 
         <a href="{% url 'task-list' %}" class="back">
             ← Вернуться к задачам
         </a>
 
+
     </div>
 
 </div>
+
 
 </body>
 </html>

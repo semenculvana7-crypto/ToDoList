@@ -153,3 +153,134 @@ body {
 .register-button:hover {
     background: #444;
 }
+.profile-button {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-right: 10px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.profile-button:hover {
+    background: #555;
+}
+/* =========================
+   УВЕДОМЛЕНИЯ
+   ========================= */
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    animation: notification-show 0.35s ease;
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.notification-text {
+    flex: 1;
+}
+
+
+/* Успех */
+
+.notification-success {
+    background: #eaf8ef;
+    border: 1px solid #b8e4c6;
+    color: #216b3a;
+}
+
+.notification-success .notification-icon {
+    background: #2e9d55;
+    color: white;
+}
+
+
+/* Ошибка */
+
+.notification-error {
+    background: #fdecec;
+    border: 1px solid #f1bcbc;
+    color: #a52b2b;
+}
+
+.notification-error .notification-icon {
+    background: #d94343;
+    color: white;
+}
+
+
+/* Предупреждение */
+
+.notification-warning {
+    background: #fff7df;
+    border: 1px solid #f0d58a;
+    color: #805f00;
+}
+
+.notification-warning .notification-icon {
+    background: #e0aa24;
+    color: white;
+}
+
+
+/* Информация */
+
+.notification-info {
+    background: #eaf4ff;
+    border: 1px solid #b8d7f5;
+    color: #245a8d;
+}
+
+.notification-info .notification-icon {
+    background: #3984c6;
+    color: white;
+}
+
+
+/* Анимация */
+
+@keyframes notification-show {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

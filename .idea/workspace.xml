@@ -2,19 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ea0b966-78e9-43b1-9f81-8037d51ba125" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ToDoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ToDoList.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/tasks/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/tasks/profile_create.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tasks/profile-create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tasks/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/authentication/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/authentication/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/authentication/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/authentication/register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/tasks/task_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/tasks/task_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/authentication/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authentication/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tasks/task-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tasks/task-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tasks/task-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tasks/task-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tasks/task-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tasks/task-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tasks/task-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tasks/task-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tasks/task-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tasks/task-update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -56,7 +62,8 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/vanuh/PycharmProjects/ToDoList/static/tasks",
-    "list.type.of.created.stylesheet": "CSS"
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой профиль</title>
+
+    <link rel="stylesheet" href="{% static 'tasks/profile.css' %}">
+</head>
+
+<body>
+
+<div class="profile-container">
+
+    <h1>Мой профиль</h1>
+
+    <div class="profile-info">
+        <p>
+            <strong>Имя:</strong>
+            {{ profile.name }}
+        </p>
+
+        <p>
+            <strong>Возраст:</strong>
+            {{ profile.age }}
+        </p>
+
+        <div class="profile-description">
+            <strong>Описание:</strong>
+            <p>{{ profile.description }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'task-list' %}" class="back-button">
+        Назад к задачам
+    </a>
+
+</div>
+
+</body>
+</html>

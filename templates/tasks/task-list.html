@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Мои задачи</title>
@@ -11,6 +12,7 @@
 
 <div class="container">
 
+    <!-- Шапка -->
     <div class="header">
 
         <div>
@@ -22,12 +24,15 @@
 
             {% if user.is_authenticated %}
 
+                <!-- Создать задачу -->
                 <a href="{% url 'task-create' %}" class="create-button">
                     + Создать задачу
                 </a>
 
+                <!-- Выйти -->
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
+
                     <button type="submit" class="logout-button">
                         Выйти
                     </button>
@@ -35,13 +40,35 @@
 
             {% else %}
 
+                <!-- Войти -->
                 <a href="{% url 'login' %}" class="login-button">
                     Войти
                 </a>
 
+                <!-- Регистрация -->
                 <a href="{% url 'register' %}" class="register-button">
                     Регистрация
                 </a>
+
+            {% endif %}
+
+
+            <!-- Профиль -->
+            {% if user.is_authenticated %}
+
+                {% if has_profile %}
+
+                    <a href="{% url 'profile' user.pk %}" class="profile-button">
+                        Мой профиль
+                    </a>
+
+                {% else %}
+
+                    <a href="{% url 'profile-create' %}" class="profile-button">
+                        Создать профиль
+                    </a>
+
+                {% endif %}
 
             {% endif %}
 
@@ -50,6 +77,47 @@
     </div>
 
 
+    <!-- Уведомления -->
+    {% if messages %}
+
+        <div class="notifications">
+
+            {% for message in messages %}
+
+                <div class="notification notification-{{ message.tags }}">
+
+                    <div class="notification-icon">
+
+                        {% if message.tags == 'success' %}
+                            ✓
+
+                        {% elif message.tags == 'error' %}
+                            !
+
+                        {% elif message.tags == 'warning' %}
+                            !
+
+                        {% else %}
+                            i
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="notification-text">
+                        {{ message }}
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- Список задач -->
     <div class="tasks">
 
         {% for task in tasks %}
@@ -58,47 +126,74 @@
 
                 <div class="task-info">
 
-                    <h2>{{ task.tittle }}</h2>
+                    <h2>
+                        {{ task.tittle }}
+                    </h2>
 
                     <p>
                         {{ task.description|truncatewords:20 }}
                     </p>
 
+
                     {% if task.completed %}
+
                         <span class="status completed">
                             Выполнено
                         </span>
+
                     {% else %}
+
                         <span class="status active">
                             В процессе
                         </span>
+
                     {% endif %}
 
                 </div>
 
-                <a href="{% url 'task-detail' task.pk %}" class="details-button">
+
+                <!-- Подробнее -->
+                <a href="{% url 'task-detail' task.pk %}"
+                   class="details-button">
+
                     Подробнее
+
                 </a>
 
             </div>
 
+
         {% empty %}
 
+
+            <!-- Если задач нет -->
             <div class="empty">
-                <h2>Задач пока нет</h2>
-                <p>Создай свою первую задачу.</p>
+
+                <h2>
+                    Задач пока нет
+                </h2>
+
+                <p>
+                    Создай свою первую задачу.
+                </p>
+
 
                 {% if user.is_authenticated %}
+
                     <a href="{% url 'task-create' %}">
                         Создать задачу
                     </a>
+
                 {% else %}
+
                     <a href="{% url 'login' %}">
                         Войти
                     </a>
+
                 {% endif %}
 
             </div>
+
 
         {% endfor %}
 

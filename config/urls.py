@@ -16,15 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularSwaggerView,
+)
+from django.urls import include
+from rest_framework.authtoken.views import obtain_auth_token
 from tasks.views import (
     TaskListView,
     TaskCreateView,
     TaskDetailView,
     TaskDeleteView,
-    TaskUpdateView, UserCreateView, UserLoginView, UserLogoutView
+    TaskUpdateView, UserCreateView, UserLoginView, UserLogoutView, ProfileDetailView, ProfileCreateView
 )
 
 urlpatterns = [
+    path('api/token/', obtain_auth_token),
     path('admin/', admin.site.urls),
     path('',TaskListView.as_view(), name = 'task-list'),
     path('task/<int:pk>/',TaskDetailView.as_view(), name = 'task-detail'),
@@ -34,4 +41,13 @@ urlpatterns = [
     path('register/', UserCreateView.as_view(), name= 'register'),
     path('login/', UserLoginView.as_view(), name= 'login'),
     path("logout/", UserLogoutView.as_view(), name="logout"),
+    path('user/<int:pk>/profile',ProfileDetailView.as_view(), name = 'profile'),
+    path('user/profile/create', ProfileCreateView.as_view(), name= 'profile-create'),
+    path('api/', include('api.urls')),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path(
+    'api/docs/',
+        SpectacularSwaggerView.as_view(url_name='schema'),
+        name='swagger-ui',
+),
 ]
